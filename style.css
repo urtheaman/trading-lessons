@@ -12,6 +12,16 @@ html {
   }
 }
 
+::-moz-selection {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+::selection {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -20,14 +30,6 @@ body {
   background-color: #1f1f1f;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
-}
-body::-moz-selection {
-  background-color: #1f1f1f;
-  color: #fff;
-}
-body::selection {
-  background-color: #1f1f1f;
-  color: #fff;
 }
 
 header nav {
