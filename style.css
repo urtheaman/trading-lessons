@@ -106,6 +106,9 @@ main .lesson-component #extra-details {
   display: flex;
   justify-content: space-between;
 }
+main #add-lesson {
+  display: none;
+}
 main #add-lesson label {
   color: #fff;
   font-family: inherit;
