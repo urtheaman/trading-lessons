@@ -1,0 +1,141 @@
+html {
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 796px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: #1f1f1f;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header nav {
+  margin: 2rem auto;
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+}
+header nav #user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: inherit;
+}
+header nav #user-info .user_photo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 2px solid rebeccapurple;
+  margin-bottom: 2px;
+}
+header nav #user-info .detalils {
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2rem;
+}
+header nav #user-info .detalils .email {
+  font-size: 1.5rem;
+}
+header nav #sign-in {
+  background-color: #fff;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: inherit;
+  width: 12rem;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 2rem;
+}
+header nav #sign-in img {
+  margin-right: 0.4rem;
+  width: 2.4rem;
+}
+
+main #study-lesson h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+main .lesson-component {
+  padding: 0.3rem 0;
+  box-shadow: 6px 10px 20px -15px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  text-transform: capitalize;
+  margin: 2rem auto;
+  max-width: 60rem;
+  background-color: #fff;
+  letter-spacing: 1.4px;
+  word-spacing: 1.4px;
+  line-height: 30px;
+  font-size: 2.3rem;
+  font-weight: 300;
+  width: 92%;
+}
+main .lesson-component #extra-details {
+  padding: 0 5rem 1rem 4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+main #add-lesson label {
+  color: #fff;
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 3rem auto;
+  text-align: center;
+  display: block;
+}
+main #add-lesson #textarea {
+  border: none;
+  outline: none;
+  display: block;
+  resize: vertical;
+  padding: 3rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+main #add-lesson #submit {
+  border: none;
+  padding: 2rem;
+  width: 92%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 2rem auto 4rem;
+  display: block;
+}/*# sourceMappingURL=style.css.map */
