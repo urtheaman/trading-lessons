@@ -19,6 +19,10 @@ body {
   background-color: rgb(31, 31, 31);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  &::selection {
+    background-color: rgb(31, 31, 31);
+    color: #fff;
+  }
 }
 
 header {
