@@ -5,24 +5,12 @@ const userInfo = document.getElementById("user-info");
 const user_name = userInfo.querySelector(".name");
 const user_email = userInfo.querySelector(".email");
 const photoUrl = userInfo.querySelector(".user_photo");
-const studyLesson = document.getElementById('study-lesson')
-const addLesson = document.getElementById('add-lesson')
+const studyLessonH1 = document.querySelector("#study-lesson h1");
+const addLesson = document.getElementById("add-lesson");
 
-var lessons = [
-  {
-    time: "12/10/2021 Morning",
-    lesson:
-      "Enter Trades At Either Supply Or Demand Zones. By Doing That Profit Target Will Be Much Bigger And Stop Loss Will Be Much Smaller.",
-    name: "The Aman",
-  },
-
-  {
-    time: "13/10/2021 evening",
-    lesson:
-      "Enter Trades At Either Supply Or Demand Zones. By Doing That Profit Target Will Be Much Bigger And Stop Loss Will Be Much Smaller.",
-    name: "Thomas",
-  },
-];
+var lessons = {
+  lesson: [],
+};
 
 signedIn = (name, email, url) => {
   user_name.textContent = name;
@@ -30,9 +18,9 @@ signedIn = (name, email, url) => {
   photoUrl.setAttribute("src", url);
   userInfo.style.visibility = "visible";
   signInBtn.textContent = "sign out";
-  signInBtn.style.backgroundColor = 'rebeccapurple'
-  signInBtn.style.color = '#fff'
-  addLesson.style.display = 'block'
+  signInBtn.style.backgroundColor = "rebeccapurple";
+  signInBtn.style.color = "#fff";
+  addLesson.style.display = "block";
 };
 
 signedOut = () => {
@@ -52,31 +40,47 @@ signedOut = () => {
 const savedUser = JSON.parse(localStorage.getItem("user"));
 if (savedUser) {
   signedIn(savedUser.displayName, savedUser.email, savedUser.photoURL);
+  getData();
 }
 
-input.addEventListener("click", function (e) {
-  e.preventDefault();
-});
-
-lessons.forEach(lesson => {
-    studyLesson.insertAdjacentHTML(
-      "beforeend",
-      `
+function htmlUpdater(el) {
+  studyLessonH1.insertAdjacentHTML(
+    "afterend",
+    `
         <div class="lesson-component">
                 <blockquote>
-                    ${lesson.lesson}
+                    ${el.lesson}
                 </blockquote>
                 <div id="extra-details">
-                    <span>date : ${lesson.time}</span>
-                    <span>${lesson.name}</span>
+                    <span>date : ${el.time}</span>
+                    <span>${el.name}</span>
                 </div>
             </div>
     `
-    );
-})
+  );
+}
 
-submit.addEventListener('click', (e) => {
-    e.preventDefault()
-    if (localStorage.getItem('user')) console.log('Logged In')
-    else alert('Please sign in first')
-})
+function getData() {
+  if (localStorage.getItem("lessons")) {
+    lessons = JSON.parse(localStorage.getItem("lessons"));
+    lessons.lesson.forEach((el) => htmlUpdater(el));
+  }
+}
+
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (savedUser) {
+    const timeNow = new Date();
+    const data = {
+      time: `${timeNow.getDate()}/${timeNow.getMonth()}/${timeNow.getFullYear()} ${
+        timeNow.getHours() > 12 ? "Evening" : "Morning"
+      }`,
+      lesson: input.value.trim(),
+      name: savedUser.displayName,
+    };
+    lessons.lesson.push(data);
+    localStorage.setItem("lessons", JSON.stringify(lessons));
+    input.value = "";
+    htmlUpdater(data);
+  } else alert("Please sign in first");
+});
